@@ -93,13 +93,10 @@
      */
     
 	
-    //Add a new Case on CRM
-    //crmCaseActions *caseAction = [[crmCaseActions alloc] init];
-    //[caseAction newCase:response.id name:_nameTextField.text description:_descriptionTextView];
     //Login
-    crmLogin *test = [[crmLogin alloc] init];
-    test.delegate = self;
-    [test login:@"admin" password:@"37cdf91cb63badb018c3de5698104f56"];
+    crmLogin *connection = [[crmLogin alloc] init];
+    connection  .delegate = self;
+    [connection login:@"admin" password:@"37cdf91cb63badb018c3de5698104f56"];
     
 	
 	//_nameTextField.text = @"";
