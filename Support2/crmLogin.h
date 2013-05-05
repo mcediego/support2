@@ -15,10 +15,11 @@
 __weak id <crmLoginDelegate> _delegate;
 }
 
--(void) login:(NSString *)user_name password:(NSString *)password;
+-(void) login:(NSString *)user_name password:(NSString *)password crm_url:(NSString *)crm_url;
 
 @property (nonatomic,strong) NSString * user_name;
 @property (nonatomic,strong) NSString * password;
+@property (nonatomic,strong) NSString * crm_url;
 
 @property(nonatomic, weak) id <crmLoginDelegate> delegate;
 

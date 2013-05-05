@@ -10,7 +10,7 @@
 
 @interface crmCaseActions : NSObject
 
--(void) newCase: (NSString *)session_id name:(NSString *)name description:(NSString *)description;
+-(void) newCase: (NSString *)session_id name:(NSString *)name description:(NSString *)description crm_url:(NSString *)crm_url;
 -(void) listCase;
 -(void) editCase;
 

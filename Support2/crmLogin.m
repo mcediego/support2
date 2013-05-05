@@ -31,7 +31,7 @@
 
 @synthesize delegate = _delegate;
 
--(void)login:(NSString *)user_name password:(NSString *)password {
+-(void)login:(NSString *)user_name password:(NSString *)password crm_url:(NSString *)crm_url {
     
     
     
@@ -80,7 +80,7 @@
     RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:requestMapping objectClass:[SugarArg class] rootKeyPath:nil];
     
     
-    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://localhost/sugarce6510/service/v4"]];
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:crm_url]];
     
     [manager addRequestDescriptor:requestDescriptor];
     [manager addResponseDescriptor:articleDescriptor];

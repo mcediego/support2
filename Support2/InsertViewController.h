@@ -10,6 +10,10 @@
 #import "crmLoginDelegate.h"
 
 @interface InsertViewController : UIViewController<UITextViewDelegate,UITextViewDelegate, UITextFieldDelegate, crmLoginDelegate> {
+    NSString * crm_url;
+    NSString * crm_user;
+    NSString * crm_passmd5;
+    
     UITextField *_nameTextField;
     UITextView *_descriptionTextView;
     

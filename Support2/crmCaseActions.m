@@ -22,7 +22,7 @@
 
 @implementation crmCaseActions
 
--(void) newCase: (NSString *)session_id name:(NSString *)name description:(NSString *)description  {
+-(void) newCase: (NSString *)session_id name:(NSString *)name description:(NSString *)description crm_url:(NSString *)crm_url {
     
     //RESP
     RKObjectMapping *field = [RKObjectMapping mappingForClass:[crmField class]];
@@ -58,7 +58,7 @@
     RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:requestMapping objectClass:[SugarArg class] rootKeyPath:nil];
     
     
-    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://localhost/sugarce6510/service/v4"]];
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:crm_url]];
     
     [manager addRequestDescriptor:requestDescriptor];
     [manager addResponseDescriptor:articleDescriptor];

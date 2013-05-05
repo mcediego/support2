@@ -16,6 +16,20 @@
 @implementation InsertViewController
 
 -(id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    
+    /*
+     App configuration
+    */
+    
+    crm_url = @"http://localhost/sugarce6510/service/v4";
+    crm_user = @"admin";
+    crm_passmd5 = @"37cdf91cb63badb018c3de5698104f56";
+    
+    /*
+     configuration data end 
+    */
+    
+    
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
@@ -85,18 +99,18 @@
 
 - (void)addButtonTapped {
 	
-     //NSString *X = _nameTextField.text;
+    //NSString *X = _nameTextField.text;
     /*
     NSString *X = @"debug";
-     UIAlertView * msg = [[UIAlertView alloc] initWithTitle:@"ATT" message:X delegate:nil cancelButtonTitle:nil otherButtonTitles:@"ok",nil];
-     [msg show];
-     */
+    UIAlertView * msg = [[UIAlertView alloc] initWithTitle:@"ATT" message:X delegate:nil cancelButtonTitle:nil otherButtonTitles:@"ok",nil];
+    [msg show];
+    */
     
 	
     //Login
     crmLogin *connection = [[crmLogin alloc] init];
     connection  .delegate = self;
-    [connection login:@"admin" password:@"37cdf91cb63badb018c3de5698104f56"];
+    [connection login:crm_user password:crm_passmd5 crm_url:crm_url];
     
 	
 	//_nameTextField.text = @"";
@@ -123,13 +137,10 @@
     
     //Add a new Case on CRM
     crmCaseActions *caseAction = [[crmCaseActions alloc] init];
-    [caseAction newCase:response.id name:_nameTextField.text description:_descriptionTextView.text];
-    
-    //[self sessionId] = response.id;
+    [caseAction newCase:response.id name:_nameTextField.text description:_descriptionTextView.text crm_url:crm_url];
     
     
     _nameTextField.text = @"";
-	//_originTextField.text = @"";
 	_descriptionTextView.text = @"";
     
 }
